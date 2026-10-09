@@ -699,6 +699,9 @@ public class WifiSettings2 extends RestrictedSettingsFragment
 
     @Override
     public void onWifiEntriesChanged() {
+        if (getActivity() == null) {
+            return;
+        }
         updateWifiEntryPreferencesDelayed();
         changeNextButtonState(mWifiPickerTracker.getConnectedWifiEntry() != null);
 
